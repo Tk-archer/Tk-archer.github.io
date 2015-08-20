@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="Tcp," />
 
 
 
@@ -37,16 +37,20 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="本文基于阮一峰的Javascript编程风格.编纂">
+<meta name="description" content="TCP协议定义TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议，由IETF的RFC 793定义。
+在简化的计算机网络OSI模型中，它完成第四层传输层所指定的功能，用户数据报协议（UDP）是同一层内[1]  另一个重要的传输协议。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Javascript编程风格">
-<meta property="og:url" content="http://yoursite.com/2015/08/17/hello-world/index.html">
+<meta property="og:title" content="TCP协议">
+<meta property="og:url" content="http://yoursite.com/2015/08/19/TCP协议/index.html">
 <meta property="og:site_name" content="Fsz车站">
-<meta property="og:description" content="本文基于阮一峰的Javascript编程风格.编纂">
-<meta property="og:updated_time" content="2015-08-17T10:36:17.924Z">
+<meta property="og:description" content="TCP协议定义TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议，由IETF的RFC 793定义。
+在简化的计算机网络OSI模型中，它完成第四层传输层所指定的功能，用户数据报协议（UDP）是同一层内[1]  另一个重要的传输协议。">
+<meta property="og:image" content="http://yoursite.com/uploads/滑动窗口.png">
+<meta property="og:updated_time" content="2015-08-19T15:58:04.883Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javascript编程风格">
-<meta name="twitter:description" content="本文基于阮一峰的Javascript编程风格.编纂">
+<meta name="twitter:title" content="TCP协议">
+<meta name="twitter:description" content="TCP协议定义TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议，由IETF的RFC 793定义。
+在简化的计算机网络OSI模型中，它完成第四层传输层所指定的功能，用户数据报协议（UDP）是同一层内[1]  另一个重要的传输协议。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -56,7 +60,7 @@
   };
 </script>
 
-  <title> Javascript编程风格 | Fsz车站 </title>
+  <title> TCP协议 | Fsz车站 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -163,7 +167,7 @@
           
           
             
-              Javascript编程风格
+              TCP协议
             
           
         </h1>
@@ -172,8 +176,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-17T18:36:17+08:00" content="2015-08-17">
-            2015-08-17
+          <time itemprop="dateCreated" datetime="2015-08-19T17:07:37+08:00" content="2015-08-19">
+            2015-08-19
           </time>
         </span>
 
@@ -191,46 +195,70 @@
       
 
       
-        <span itemprop="articleBody"><p>本文基于阮一峰的<a href="http://www.ruanyifeng.com/blog/2012/04/javascript_programming_style.html" target="_blank" rel="external">Javascript编程风格</a>.<br>编纂<br><a id="more"></a></p>
-<h2 id="编程风格">编程风格</h2><p>所谓<br><strong>“编程风格”（programming style），指的是编写代码的样式规则。</strong><br>不同的程序员，往往有不同的编程风格。<br>有人说，编译器的规范叫做”语法规则”（grammar），这是程序员必须遵守的；而编译器忽略的部分，就叫”编程风格”（programming style），这是程序员可以自由选择的。这种说法不完全正确，<br><strong>程序员固然可以自由选择编程风格，但是好的编程风格有助于写出质量更高、错误更少、更易于维护的程序。</strong><br>所以，有一点应该明确，<br><strong>“编程风格”的选择不应该基于个人爱好、熟悉程度、打字工作量等因素，而要考虑如何尽量使代码清晰易读、<br>减少出错。你选择的，不是你喜欢的风格，而是一种能够清晰表达你的意图的风格。</strong><br>这一点，对于Javascript这种语法自由度很高、设计不完全成熟的语言尤其重要。</p>
-<h3 id="大括号的位置">大括号的位置</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">block</span> &#123;</span><br><span class="line">　　　　...</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">规则<span class="number">1</span>：表示区块起首的大括号，不要另起一行。</span><br></pre></td></tr></table></figure>
-<h3 id="圆括号">圆括号</h3><p>圆括号（parentheses）在Javascript中有两种作用，一种表示调用函数，另一种表示不同的值的组合（grouping）。我们可以用空格，区分这两种不同的括号。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">规则<span class="number">2</span>：调用函数的时候，函数名与左括号之间没有空格。</span><br><span class="line"></span><br><span class="line">规则<span class="number">3</span>：函数名与参数序列之间，没有空格。</span><br><span class="line"></span><br><span class="line">规则<span class="number">4</span>：所有其他语法元素与左括号之间，都有一个空格。</span><br></pre></td></tr></table></figure>
-<h3 id="分号">分号</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">规则<span class="number">5</span>：不要省略句末的分号。</span><br></pre></td></tr></table></figure>
-<h3 id="with语句">with语句</h3><p>with可以减少代码的书写，但是会造成混淆。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">规则<span class="number">6</span>：不要使用<span class="keyword">with</span>语句。</span><br></pre></td></tr></table></figure>
-<h3 id="相等和严格相等">相等和严格相等</h3><p>with可以减少代码的书写，但是会造成混淆。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　<span class="number">0</span> == <span class="string">''</span><span class="comment">// true</span></span><br><span class="line">　<span class="number">1</span> == <span class="literal">true</span> <span class="comment">// true</span></span><br><span class="line">　<span class="number">2</span> == <span class="literal">true</span> <span class="comment">// false</span></span><br><span class="line">　<span class="number">0</span> == <span class="string">'0'</span> <span class="comment">// true</span></span><br><span class="line">　<span class="literal">false</span> == <span class="string">'false'</span> <span class="comment">// false</span></span><br><span class="line">　<span class="literal">false</span> == <span class="string">'0'</span> <span class="comment">// true</span></span><br><span class="line">　<span class="string">" \t\r\n "</span> == <span class="number">0</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　规则<span class="number">7</span>：不要使用<span class="string">"相等"</span>（==）运算符，只使用<span class="string">"严格相等"</span>（===）运算符。</span><br></pre></td></tr></table></figure>
-<h3 id="语句的合并">语句的合并</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　规则<span class="number">8</span>：不要将不同目的的语句，合并成一行。</span><br></pre></td></tr></table></figure>
-<h3 id="变量声明">变量声明</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">　　规则<span class="number">9</span>：所有变量声明都放在函数的头部。</span><br><span class="line"> 　规则<span class="number">10</span>：所有函数都在使用之前定义。</span><br></pre></td></tr></table></figure>
-<h3 id="全局变量">全局变量</h3><p>Javascript最大的语法缺点，可能就是全局变量对于任何一个代码块，都是可读可写。这对代码的模块化和重复使用，非常不利。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　规则<span class="number">11</span>：避免使用全局变量；如果不得不使用，用大写字母表示变量名，比如UPPER_CASE。</span><br></pre></td></tr></table></figure>
-<h3 id="new命令">new命令</h3><p>Javascript使用new命令，从建构函数生成一个新对象。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　规则<span class="number">12</span>：不要使用new命令，改用Object.<span class="function"><span class="title">create</span><span class="params">()</span></span>命令。</span><br></pre></td></tr></table></figure>
-<p>如果不得不使用new，为了防止出错，最好在视觉上把建构函数与其他函数区分开来。</p>
-<h3 id="自增和自减运算符">自增和自减运算符</h3><p>自增（++）和自减（–）运算符，放在变量的前面或后面，返回的值不一样，很容易发生错误。</p>
-<p>事实上，所有的++运算符都可以用”+= 1”代替。</p>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">　　规则14：不要使用自增（</span><span class="literal">+</span><span class="literal">+</span><span class="comment">）和自减（</span><span class="literal">-</span><span class="literal">-</span><span class="comment">）运算符，用</span><span class="literal">+</span><span class="comment">=和</span><span class="literal">-</span><span class="comment">=代替。</span></span><br></pre></td></tr></table></figure>
-<h3 id="区块">区块</h3><p>如果循环和判断的代码体只有一行，Javascript允许该区块（block）省略大括号。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　规则<span class="number">15</span>：总是使用大括号表示区块。</span><br></pre></td></tr></table></figure></p>
-<p>（完）</p>
+        <span itemprop="articleBody"><h1 id="TCP协议">TCP协议</h1><h2 id="定义">定义</h2><p>TCP（Transmission Control Protocol 传输控制协议）是一种面向连接的、可靠的、基于字节流的传输层通信协议，由IETF的RFC 793定义。</p>
+<p>在简化的计算机网络OSI模型中，它完成第四层传输层所指定的功能，用户数据报协议（UDP）是同一层内[1]  另一个重要的传输协议。<br><a id="more"></a><br>在因特网协议族（Internet protocol suite）中，TCP层是位于IP层之上，应用层之下的中间层。不同主机的应用层之间经常需要可靠的、像管道一样的连接，但是IP层不提供这样的流机制，而是提供不可靠的包交换。</p>
+<h2 id="功能">功能</h2><p>当应用层向TCP层发送用于网间传输的、用8位字节表示的数据流，<br>TCP则把数据流分割成适当长度的报文段，<br>最大传输段大小（MSS）通常受该计算机连接的网络的数据链路层的最大传送单元（MTU）限制。<br>之后TCP把数据包传给IP层，由它来通过网络将包传送给接收端实体的TCP层。</p>
+<h2 id="建立连接协议（三次握手）">建立连接协议（三次握手）</h2><ol>
+<li><p>客户端发送一个带<code>SYN(握手信号)</code>标志的TCP报文到服务器。这是三次握手过程中的报文1。</p>
+</li>
+<li><p>服务器端回应客户端的，这是三次握手中的第2个报文，这个报文同时带<code>ACK(命令正确应答)</code>标志和<code>SYN(握手信号)</code>标志。因此它表示对刚才客户端<code>SYN(握手信号)</code>报文的回应；<br>同时又标志<code>SYN(握手信号)</code>给客户端，询问客户端是否准备好进行数据通讯。</p>
+</li>
+<li><p>客户必须再次回应服务段一个<code>ACK(命令正确应答)</code>报文，这是报文段3。</p>
+</li>
+</ol>
+<h2 id="连接终止协议（四次握手）">连接终止协议（四次握手）</h2><blockquote>
+<p>由于TCP连接是全双工的，因此每个方向都必须单独进行关闭。<br>这原则是当一方完成它的数据发送任务后就能发送一个FIN来终止这个方向的连接。<br>收到一个 FIN只意味着这一方向上没有数据流动，一个TCP连接在收到一个FIN后仍能发送数据。<br>首先进行关闭的一方将执行主动关闭，而另一方执行被动关闭。</p>
+</blockquote>
+<ol>
+<li>TCP客户端发送一个FIN，用来关闭客户到服务器的数据传送（报文段4）。</li>
+<li>服务器收到这个FIN，它发回一个ACK，确认序号为收到的序号加1（报文段5）。和SYN一样，一个FIN将占用一个序号。</li>
+<li>服务器关闭客户端的连接，发送一个FIN给客户端（报文段6）。</li>
+<li>客户段发回ACK报文确认，并将确认序号设置为收到序号加1（报文段7）。</li>
+</ol>
+<h2 id="TCP滑动窗口机制">TCP滑动窗口机制</h2><h3 id="例子：">例子：</h3><p><img src="/uploads/滑动窗口.png" alt="TCP滑动窗口机制"></p>
+<h3 id="说明">说明</h3><ol>
+<li><p>首先是AB之间三次握手建立TCP连接。在报文的交互过程中，A将自己的缓冲区大小（窗口大小）3发送给B，B同理，这样双方就知道了对端的窗口大小。</p>
+</li>
+<li><p>A开始发送数据，A连续发送3个单位的数据，因为他知道B的缓冲区大小。在这一波数据发送完后，A就不能再发了，需等待B的确认。<br>A发送过来的数据逐渐将缓冲区填满。</p>
+</li>
+<li><p>这时候缓冲区中的一个报文被进程读取，缓冲区有了一个空位，于是B向A发送一个ACK，这个报文中指示窗口大小为1。</p>
+</li>
+<li><p>A收到B发过来的ACK消息，并且知道B将窗口大小调整为1，因此他只发送了一个单位的数据并且等待B的下一个确认报文。</p>
+</li>
+<li><p>循环到数据传输结束。</p>
+</li>
+</ol>
+<h4 id="累积确认">累积确认</h4><p>接收方对某个编号进行确认，该编号之前的数据必须都已接收到了，从而有时候前面窗口的数据没有接受到，就必须暂存数据，并在接收到前面的其他数据后进行累积确认</p>
+<h3 id="优点">优点</h3><p>允许发送方在对数据进行重发时发送更多的数据，无需对丢失的确认进行重发；<br>为确认数据段也会丢失，但只要下一个确认能够到达对方就无需对前一个确认进行重发</p>
+<h3 id="缺点">缺点</h3><p>若第一个窗口的数据丢失，则收到的确认好一直都是关于之前数据的确认，得不到关于新发送的数据包的确认；<br>从而无法确定从该窗口开始的数据包哪些成功发送，哪些丢失了</p>
+<h2 id="拥塞控制机制">拥塞控制机制</h2><p>慢启动和成倍减少；TCP 协议实际发送窗口的大小应该是拥塞窗口和接收方接收窗口中小的一个</p>
+<h3 id="成倍减少机制：">成倍减少机制：</h3><p>当TCP 发现数据段丢失（即超时重发）时，就将拥塞窗口的大小减少一半（但其大小至少应为1 ） ，对于减小窗口后仍在发送窗口中的数据段，将其重发的超时值延长一倍。</p>
+<h3 id="慢启动机制：">慢启动机制：</h3><p>在TCP 启动一个新的连接或拥塞结束后，将拥塞窗口的大小设置为一个数据段的大小，然后每收到一个确认段，TCP 就将拥塞窗口的大小增加一个数据段；在拥塞发生并恢复后，通过慢启动机制使得拥塞窗口的大小达到了拥塞之前的一半，TCP 就启动一个拥塞避免机制以减缓窗口扩大的速度</p>
+<h3 id="傻窗口症状：">傻窗口症状：</h3><p>极端的情况，接收方的应用程序一直没有处理接收到的数据，这样接收方的TCP 缓冲区都被接收到的数据占满，接收窗口的大小减小为0，TCP 将这个窗口大小通知给发送方TCP，这时整个数据传输就停下来了</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Tcp/" rel="tag">#Tcp</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/17/page/" rel="prev">新建的hexo blog</a>
+              <a href="/2015/08/20/内存池/" rel="prev">内存池</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/19/计算机网络/" rel="next">计算机网络</a>
             
           </div>
         </div>
@@ -334,7 +362,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编程风格"><span class="nav-number">1.</span> <span class="nav-text">编程风格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#大括号的位置"><span class="nav-number">1.1.</span> <span class="nav-text">大括号的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#圆括号"><span class="nav-number">1.2.</span> <span class="nav-text">圆括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分号"><span class="nav-number">1.3.</span> <span class="nav-text">分号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#with语句"><span class="nav-number">1.4.</span> <span class="nav-text">with语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相等和严格相等"><span class="nav-number">1.5.</span> <span class="nav-text">相等和严格相等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语句的合并"><span class="nav-number">1.6.</span> <span class="nav-text">语句的合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量声明"><span class="nav-number">1.7.</span> <span class="nav-text">变量声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量"><span class="nav-number">1.8.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new命令"><span class="nav-number">1.9.</span> <span class="nav-text">new命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自增和自减运算符"><span class="nav-number">1.10.</span> <span class="nav-text">自增和自减运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区块"><span class="nav-number">1.11.</span> <span class="nav-text">区块</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP协议"><span class="nav-number">1.</span> <span class="nav-text">TCP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能"><span class="nav-number">1.2.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立连接协议（三次握手）"><span class="nav-number">1.3.</span> <span class="nav-text">建立连接协议（三次握手）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接终止协议（四次握手）"><span class="nav-number">1.4.</span> <span class="nav-text">连接终止协议（四次握手）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP滑动窗口机制"><span class="nav-number">1.5.</span> <span class="nav-text">TCP滑动窗口机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子："><span class="nav-number">1.5.1.</span> <span class="nav-text">例子：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">1.5.2.</span> <span class="nav-text">说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#累积确认"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">累积确认</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">1.5.3.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">1.5.4.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拥塞控制机制"><span class="nav-number">1.6.</span> <span class="nav-text">拥塞控制机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#成倍减少机制："><span class="nav-number">1.6.1.</span> <span class="nav-text">成倍减少机制：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#慢启动机制："><span class="nav-number">1.6.2.</span> <span class="nav-text">慢启动机制：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#傻窗口症状："><span class="nav-number">1.6.3.</span> <span class="nav-text">傻窗口症状：</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

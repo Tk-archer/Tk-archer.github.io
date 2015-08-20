@@ -37,16 +37,40 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="本文基于阮一峰的Javascript编程风格.编纂">
+<meta name="description" content="网络分层总体划分ISO提出的OSI（Open System Interconnection）模型将网络分为七层，即 
+
+物理层( Physical )
+数据链路层(Data Link)
+网络层(Network)
+传输层(Transport)
+会话层(Session)
+表示层(Presentation)
+应用层(Application)。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Javascript编程风格">
-<meta property="og:url" content="http://yoursite.com/2015/08/17/hello-world/index.html">
+<meta property="og:title" content="计算机网络">
+<meta property="og:url" content="http://yoursite.com/2015/08/19/计算机网络/index.html">
 <meta property="og:site_name" content="Fsz车站">
-<meta property="og:description" content="本文基于阮一峰的Javascript编程风格.编纂">
-<meta property="og:updated_time" content="2015-08-17T10:36:17.924Z">
+<meta property="og:description" content="网络分层总体划分ISO提出的OSI（Open System Interconnection）模型将网络分为七层，即 
+
+物理层( Physical )
+数据链路层(Data Link)
+网络层(Network)
+传输层(Transport)
+会话层(Session)
+表示层(Presentation)
+应用层(Application)。">
+<meta property="og:updated_time" content="2015-08-19T15:58:15.691Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javascript编程风格">
-<meta name="twitter:description" content="本文基于阮一峰的Javascript编程风格.编纂">
+<meta name="twitter:title" content="计算机网络">
+<meta name="twitter:description" content="网络分层总体划分ISO提出的OSI（Open System Interconnection）模型将网络分为七层，即 
+
+物理层( Physical )
+数据链路层(Data Link)
+网络层(Network)
+传输层(Transport)
+会话层(Session)
+表示层(Presentation)
+应用层(Application)。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -56,7 +80,7 @@
   };
 </script>
 
-  <title> Javascript编程风格 | Fsz车站 </title>
+  <title> 计算机网络 | Fsz车站 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -163,7 +187,7 @@
           
           
             
-              Javascript编程风格
+              计算机网络
             
           
         </h1>
@@ -172,8 +196,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-17T18:36:17+08:00" content="2015-08-17">
-            2015-08-17
+          <time itemprop="dateCreated" datetime="2015-08-19T15:53:03+08:00" content="2015-08-19">
+            2015-08-19
           </time>
         </span>
 
@@ -191,30 +215,41 @@
       
 
       
-        <span itemprop="articleBody"><p>本文基于阮一峰的<a href="http://www.ruanyifeng.com/blog/2012/04/javascript_programming_style.html" target="_blank" rel="external">Javascript编程风格</a>.<br>编纂<br><a id="more"></a></p>
-<h2 id="编程风格">编程风格</h2><p>所谓<br><strong>“编程风格”（programming style），指的是编写代码的样式规则。</strong><br>不同的程序员，往往有不同的编程风格。<br>有人说，编译器的规范叫做”语法规则”（grammar），这是程序员必须遵守的；而编译器忽略的部分，就叫”编程风格”（programming style），这是程序员可以自由选择的。这种说法不完全正确，<br><strong>程序员固然可以自由选择编程风格，但是好的编程风格有助于写出质量更高、错误更少、更易于维护的程序。</strong><br>所以，有一点应该明确，<br><strong>“编程风格”的选择不应该基于个人爱好、熟悉程度、打字工作量等因素，而要考虑如何尽量使代码清晰易读、<br>减少出错。你选择的，不是你喜欢的风格，而是一种能够清晰表达你的意图的风格。</strong><br>这一点，对于Javascript这种语法自由度很高、设计不完全成熟的语言尤其重要。</p>
-<h3 id="大括号的位置">大括号的位置</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">block</span> &#123;</span><br><span class="line">　　　　...</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">规则<span class="number">1</span>：表示区块起首的大括号，不要另起一行。</span><br></pre></td></tr></table></figure>
-<h3 id="圆括号">圆括号</h3><p>圆括号（parentheses）在Javascript中有两种作用，一种表示调用函数，另一种表示不同的值的组合（grouping）。我们可以用空格，区分这两种不同的括号。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">规则<span class="number">2</span>：调用函数的时候，函数名与左括号之间没有空格。</span><br><span class="line"></span><br><span class="line">规则<span class="number">3</span>：函数名与参数序列之间，没有空格。</span><br><span class="line"></span><br><span class="line">规则<span class="number">4</span>：所有其他语法元素与左括号之间，都有一个空格。</span><br></pre></td></tr></table></figure>
-<h3 id="分号">分号</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">规则<span class="number">5</span>：不要省略句末的分号。</span><br></pre></td></tr></table></figure>
-<h3 id="with语句">with语句</h3><p>with可以减少代码的书写，但是会造成混淆。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">规则<span class="number">6</span>：不要使用<span class="keyword">with</span>语句。</span><br></pre></td></tr></table></figure>
-<h3 id="相等和严格相等">相等和严格相等</h3><p>with可以减少代码的书写，但是会造成混淆。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　<span class="number">0</span> == <span class="string">''</span><span class="comment">// true</span></span><br><span class="line">　<span class="number">1</span> == <span class="literal">true</span> <span class="comment">// true</span></span><br><span class="line">　<span class="number">2</span> == <span class="literal">true</span> <span class="comment">// false</span></span><br><span class="line">　<span class="number">0</span> == <span class="string">'0'</span> <span class="comment">// true</span></span><br><span class="line">　<span class="literal">false</span> == <span class="string">'false'</span> <span class="comment">// false</span></span><br><span class="line">　<span class="literal">false</span> == <span class="string">'0'</span> <span class="comment">// true</span></span><br><span class="line">　<span class="string">" \t\r\n "</span> == <span class="number">0</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　规则<span class="number">7</span>：不要使用<span class="string">"相等"</span>（==）运算符，只使用<span class="string">"严格相等"</span>（===）运算符。</span><br></pre></td></tr></table></figure>
-<h3 id="语句的合并">语句的合并</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　规则<span class="number">8</span>：不要将不同目的的语句，合并成一行。</span><br></pre></td></tr></table></figure>
-<h3 id="变量声明">变量声明</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">　　规则<span class="number">9</span>：所有变量声明都放在函数的头部。</span><br><span class="line"> 　规则<span class="number">10</span>：所有函数都在使用之前定义。</span><br></pre></td></tr></table></figure>
-<h3 id="全局变量">全局变量</h3><p>Javascript最大的语法缺点，可能就是全局变量对于任何一个代码块，都是可读可写。这对代码的模块化和重复使用，非常不利。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　规则<span class="number">11</span>：避免使用全局变量；如果不得不使用，用大写字母表示变量名，比如UPPER_CASE。</span><br></pre></td></tr></table></figure>
-<h3 id="new命令">new命令</h3><p>Javascript使用new命令，从建构函数生成一个新对象。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　规则<span class="number">12</span>：不要使用new命令，改用Object.<span class="function"><span class="title">create</span><span class="params">()</span></span>命令。</span><br></pre></td></tr></table></figure>
-<p>如果不得不使用new，为了防止出错，最好在视觉上把建构函数与其他函数区分开来。</p>
-<h3 id="自增和自减运算符">自增和自减运算符</h3><p>自增（++）和自减（–）运算符，放在变量的前面或后面，返回的值不一样，很容易发生错误。</p>
-<p>事实上，所有的++运算符都可以用”+= 1”代替。</p>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">　　规则14：不要使用自增（</span><span class="literal">+</span><span class="literal">+</span><span class="comment">）和自减（</span><span class="literal">-</span><span class="literal">-</span><span class="comment">）运算符，用</span><span class="literal">+</span><span class="comment">=和</span><span class="literal">-</span><span class="comment">=代替。</span></span><br></pre></td></tr></table></figure>
-<h3 id="区块">区块</h3><p>如果循环和判断的代码体只有一行，Javascript允许该区块（block）省略大括号。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　　规则<span class="number">15</span>：总是使用大括号表示区块。</span><br></pre></td></tr></table></figure></p>
-<p>（完）</p>
+        <span itemprop="articleBody"><h1 id="网络分层">网络分层</h1><h2 id="总体划分">总体划分</h2><p>ISO提出的OSI（Open System Interconnection）模型将网络分为七层，即 </p>
+<ul>
+<li>物理层( Physical )</li>
+<li>数据链路层(Data Link)</li>
+<li>网络层(Network)</li>
+<li>传输层(Transport)</li>
+<li>会话层(Session)</li>
+<li>表示层(Presentation)</li>
+<li>应用层(Application)。<a id="more"></a>
+<h2 id="1-_物理层">1. 物理层</h2>物理层(Physical layer)是参考模型的最低层。<br>该层是网络通信的数据传输介质，由连接不同结点的电缆与设备共同构成。<br><em>主要功能是：</em><br>利用传输介质为数据链路层提供物理连接，<br>负责处理数据传输并监控数据出错率，以便数据流的透明传输。<h2 id="2-_数据链路层">2. 数据链路层</h2>数据链路层(Data link layer)是参考模型的第2层。<br><em>主要功能是：</em><br>在物理层提供的服务基础上<br>在通信的实体间建立数据链路连接，传输以“帧”为单位的数据包<br>并采用差错控制与流量控制方法，使有差错的物理线路变成无差错的数据链路。<h2 id="3-_网络层">3. 网络层</h2>网络层(Network layer)是参考模型的第3层。<br><em>主要功能是：</em><br>为数据在结点之间传输创建逻辑链路，<br>通过路由选择算法为分组通过通信子网选择最适当的路径，<br>以及实现拥塞控制、 网络互联等功能。<h2 id="4-_传输层">4. 传输层</h2>传输层(Transport layer)是参考模型的第4层。<br><em>主要功能:</em><br>是向用户提供可靠的端到端(End-to-End)服务，<br>处理数据包错误、数据包次序，以及其他一些关键传输问题。<br>传输层向高层屏蔽了下层数据通信的细节，<br>因此，它是计算机通信体系结构中关键的一层。<h2 id="5-_会话层">5. 会话层</h2>会话层(Session layer)是参考模型的第5层。<br><em>主要功能是：</em><br>负责维扩两个结点之间的传输链接，以便确保点到点传输不中断，以及管理数据交换等功能。<h2 id="6-_表示层">6. 表示层</h2>表示层(Presentation layer)是参考模型的第6层。<br><em>主要功能是：</em><br>用于处理在两个通信系统中交换信息的表示方式，主要包括数据格式变换、 数据加密与解密、数据压缩与恢复等功能。<h2 id="7-_应用层">7. 应用层</h2>应用层(Application layer)是参考模型的最高层。<br><em>主要功能是：</em><br>为应用软件提供了很多服务，例如文件服务器、数据库服务、 电子邮件与其他网络软件服务。</li>
+</ul>
+<h1 id="网络协议">网络协议</h1><h2 id="TCP/IP协议组">TCP/IP协议组</h2><p>可分层次：网络层、传输层和应用层。 </p>
+<ul>
+<li>网络层<ul>
+<li>IP协议</li>
+<li>ICMP协议</li>
+<li>ARP协议</li>
+<li>RARP协议</li>
+<li>BOOTP协议。 </li>
+</ul>
+</li>
+<li>传输层<ul>
+<li>TCP协议 </li>
+<li>UDP协议。 </li>
+</ul>
+</li>
+<li>应用层<ul>
+<li>FTP</li>
+<li>HTTP</li>
+<li>TELNET</li>
+<li>SMTP</li>
+<li>DNS等协议。 </li>
+</ul>
+</li>
+</ul>
 </span>
       
     </div>
@@ -226,11 +261,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/17/page/" rel="prev">新建的hexo blog</a>
+              <a href="/2015/08/19/TCP协议/" rel="prev">TCP协议</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/17/page/" rel="next">新建的hexo blog</a>
             
           </div>
         </div>
@@ -334,7 +371,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编程风格"><span class="nav-number">1.</span> <span class="nav-text">编程风格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#大括号的位置"><span class="nav-number">1.1.</span> <span class="nav-text">大括号的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#圆括号"><span class="nav-number">1.2.</span> <span class="nav-text">圆括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分号"><span class="nav-number">1.3.</span> <span class="nav-text">分号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#with语句"><span class="nav-number">1.4.</span> <span class="nav-text">with语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相等和严格相等"><span class="nav-number">1.5.</span> <span class="nav-text">相等和严格相等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语句的合并"><span class="nav-number">1.6.</span> <span class="nav-text">语句的合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量声明"><span class="nav-number">1.7.</span> <span class="nav-text">变量声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量"><span class="nav-number">1.8.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new命令"><span class="nav-number">1.9.</span> <span class="nav-text">new命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自增和自减运算符"><span class="nav-number">1.10.</span> <span class="nav-text">自增和自减运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区块"><span class="nav-number">1.11.</span> <span class="nav-text">区块</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络分层"><span class="nav-number">1.</span> <span class="nav-text">网络分层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#总体划分"><span class="nav-number">1.1.</span> <span class="nav-text">总体划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_物理层"><span class="nav-number">1.2.</span> <span class="nav-text">1. 物理层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_数据链路层"><span class="nav-number">1.3.</span> <span class="nav-text">2. 数据链路层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_网络层"><span class="nav-number">1.4.</span> <span class="nav-text">3. 网络层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_传输层"><span class="nav-number">1.5.</span> <span class="nav-text">4. 传输层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_会话层"><span class="nav-number">1.6.</span> <span class="nav-text">5. 会话层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-_表示层"><span class="nav-number">1.7.</span> <span class="nav-text">6. 表示层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-_应用层"><span class="nav-number">1.8.</span> <span class="nav-text">7. 应用层</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络协议"><span class="nav-number">2.</span> <span class="nav-text">网络协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP/IP协议组"><span class="nav-number">2.1.</span> <span class="nav-text">TCP/IP协议组</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
