@@ -59,7 +59,7 @@
 会话层(Session)
 表示层(Presentation)
 应用层(Application)。">
-<meta property="og:updated_time" content="2015-08-19T15:58:15.691Z">
+<meta property="og:updated_time" content="2015-08-21T13:11:30.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络">
 <meta name="twitter:description" content="网络分层总体划分ISO提出的OSI（Open System Interconnection）模型将网络分为七层，即 
@@ -226,30 +226,8 @@
 <li>应用层(Application)。<a id="more"></a>
 <h2 id="1-_物理层">1. 物理层</h2>物理层(Physical layer)是参考模型的最低层。<br>该层是网络通信的数据传输介质，由连接不同结点的电缆与设备共同构成。<br><em>主要功能是：</em><br>利用传输介质为数据链路层提供物理连接，<br>负责处理数据传输并监控数据出错率，以便数据流的透明传输。<h2 id="2-_数据链路层">2. 数据链路层</h2>数据链路层(Data link layer)是参考模型的第2层。<br><em>主要功能是：</em><br>在物理层提供的服务基础上<br>在通信的实体间建立数据链路连接，传输以“帧”为单位的数据包<br>并采用差错控制与流量控制方法，使有差错的物理线路变成无差错的数据链路。<h2 id="3-_网络层">3. 网络层</h2>网络层(Network layer)是参考模型的第3层。<br><em>主要功能是：</em><br>为数据在结点之间传输创建逻辑链路，<br>通过路由选择算法为分组通过通信子网选择最适当的路径，<br>以及实现拥塞控制、 网络互联等功能。<h2 id="4-_传输层">4. 传输层</h2>传输层(Transport layer)是参考模型的第4层。<br><em>主要功能:</em><br>是向用户提供可靠的端到端(End-to-End)服务，<br>处理数据包错误、数据包次序，以及其他一些关键传输问题。<br>传输层向高层屏蔽了下层数据通信的细节，<br>因此，它是计算机通信体系结构中关键的一层。<h2 id="5-_会话层">5. 会话层</h2>会话层(Session layer)是参考模型的第5层。<br><em>主要功能是：</em><br>负责维扩两个结点之间的传输链接，以便确保点到点传输不中断，以及管理数据交换等功能。<h2 id="6-_表示层">6. 表示层</h2>表示层(Presentation layer)是参考模型的第6层。<br><em>主要功能是：</em><br>用于处理在两个通信系统中交换信息的表示方式，主要包括数据格式变换、 数据加密与解密、数据压缩与恢复等功能。<h2 id="7-_应用层">7. 应用层</h2>应用层(Application layer)是参考模型的最高层。<br><em>主要功能是：</em><br>为应用软件提供了很多服务，例如文件服务器、数据库服务、 电子邮件与其他网络软件服务。</li>
 </ul>
-<h1 id="网络协议">网络协议</h1><h2 id="TCP/IP协议组">TCP/IP协议组</h2><p>可分层次：网络层、传输层和应用层。 </p>
-<ul>
-<li>网络层<ul>
-<li>IP协议</li>
-<li>ICMP协议</li>
-<li>ARP协议</li>
-<li>RARP协议</li>
-<li>BOOTP协议。 </li>
-</ul>
-</li>
-<li>传输层<ul>
-<li>TCP协议 </li>
-<li>UDP协议。 </li>
-</ul>
-</li>
-<li>应用层<ul>
-<li>FTP</li>
-<li>HTTP</li>
-<li>TELNET</li>
-<li>SMTP</li>
-<li>DNS等协议。 </li>
-</ul>
-</li>
-</ul>
+<h2 id="TCP/IP:">TCP/IP:</h2><p>数据链路层：ARP,RARP<br>网络层： IP,ICMP,IGMP<br>传输层：TCP ,UDP,UGP<br>应用层：Telnet,FTP,SMTP,SNMP.</p>
+<h2 id="OSI:">OSI:</h2><p>物理层：EIA/TIA-232, EIA/TIA-499, V.35, V.24, RJ45, Ethernet, 802.3, 802.5, FDDI, NRZI, NRZ, B8ZS<br>数据链路层：Frame Relay, HDLC, PPP, IEEE 802.3/802.2, FDDI, ATM,  IEEE 802.5/802.2<br>网络层：IP，IPX，AppleTalk DDP<br>传输层：TCP，UDP，SPX<br>会话层：RPC,SQL,NFS,NetBIOS,names,AppleTalk,ASP,DECnet,SCP<br>表示层:TIFF,GIF,JPEG,PICT,ASCII,EBCDIC,encryption,MPEG,MIDI,HTML<br>应用层：FTP,WWW,Telnet,NFS,SMTP,Gateway,SNMP</p>
 </span>
       
     </div>
@@ -329,7 +307,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -343,7 +321,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -371,7 +349,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络分层"><span class="nav-number">1.</span> <span class="nav-text">网络分层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#总体划分"><span class="nav-number">1.1.</span> <span class="nav-text">总体划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_物理层"><span class="nav-number">1.2.</span> <span class="nav-text">1. 物理层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_数据链路层"><span class="nav-number">1.3.</span> <span class="nav-text">2. 数据链路层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_网络层"><span class="nav-number">1.4.</span> <span class="nav-text">3. 网络层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_传输层"><span class="nav-number">1.5.</span> <span class="nav-text">4. 传输层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_会话层"><span class="nav-number">1.6.</span> <span class="nav-text">5. 会话层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-_表示层"><span class="nav-number">1.7.</span> <span class="nav-text">6. 表示层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-_应用层"><span class="nav-number">1.8.</span> <span class="nav-text">7. 应用层</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络协议"><span class="nav-number">2.</span> <span class="nav-text">网络协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP/IP协议组"><span class="nav-number">2.1.</span> <span class="nav-text">TCP/IP协议组</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#网络分层"><span class="nav-number">1.</span> <span class="nav-text">网络分层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#总体划分"><span class="nav-number">1.1.</span> <span class="nav-text">总体划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_物理层"><span class="nav-number">1.2.</span> <span class="nav-text">1. 物理层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_数据链路层"><span class="nav-number">1.3.</span> <span class="nav-text">2. 数据链路层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_网络层"><span class="nav-number">1.4.</span> <span class="nav-text">3. 网络层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_传输层"><span class="nav-number">1.5.</span> <span class="nav-text">4. 传输层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_会话层"><span class="nav-number">1.6.</span> <span class="nav-text">5. 会话层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-_表示层"><span class="nav-number">1.7.</span> <span class="nav-text">6. 表示层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-_应用层"><span class="nav-number">1.8.</span> <span class="nav-text">7. 应用层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP/IP:"><span class="nav-number">1.9.</span> <span class="nav-text">TCP/IP:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI:"><span class="nav-number">1.10.</span> <span class="nav-text">OSI:</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

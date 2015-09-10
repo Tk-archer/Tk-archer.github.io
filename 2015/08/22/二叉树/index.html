@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="内存池,性能优化," />
+  <meta name="keywords" content="二叉树,数据结构," />
 
 
 
@@ -37,16 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="内存池原理说明本文是对网上看到的几份相关文档的简单总结">
+<meta name="description" content="二叉树定义在计算机科学中，二叉树是每个节点最多有两个子树的树结构。通常子树被称作“左子树”（left subtree）和“右子树”（right subtree）。二叉树常被用于实现二叉查找树和二叉堆。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="内存池">
-<meta property="og:url" content="http://yoursite.com/2015/08/20/内存池/index.html">
+<meta property="og:title" content="二叉树">
+<meta property="og:url" content="http://yoursite.com/2015/08/22/二叉树/index.html">
 <meta property="og:site_name" content="Fsz车站">
-<meta property="og:description" content="内存池原理说明本文是对网上看到的几份相关文档的简单总结">
-<meta property="og:updated_time" content="2015-08-21T07:30:09.399Z">
+<meta property="og:description" content="二叉树定义在计算机科学中，二叉树是每个节点最多有两个子树的树结构。通常子树被称作“左子树”（left subtree）和“右子树”（right subtree）。二叉树常被用于实现二叉查找树和二叉堆。">
+<meta property="og:updated_time" content="2015-08-22T09:16:38.310Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="内存池">
-<meta name="twitter:description" content="内存池原理说明本文是对网上看到的几份相关文档的简单总结">
+<meta name="twitter:title" content="二叉树">
+<meta name="twitter:description" content="二叉树定义在计算机科学中，二叉树是每个节点最多有两个子树的树结构。通常子树被称作“左子树”（left subtree）和“右子树”（right subtree）。二叉树常被用于实现二叉查找树和二叉堆。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -56,7 +56,7 @@
   };
 </script>
 
-  <title> 内存池 | Fsz车站 </title>
+  <title> 二叉树 | Fsz车站 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -163,7 +163,7 @@
           
           
             
-              内存池
+              二叉树
             
           
         </h1>
@@ -172,8 +172,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-20T23:04:41+08:00" content="2015-08-20">
-            2015-08-20
+          <time itemprop="dateCreated" datetime="2015-08-22T17:05:52+08:00" content="2015-08-22">
+            2015-08-22
           </time>
         </span>
 
@@ -191,49 +191,25 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="内存池原理说明">内存池原理说明</h1><p>本文是对网上看到的几份相关文档的简单总结<br><a id="more"></a></p>
-<h2 id="问题">问题</h2><p>主要有两个问题</p>
-<h3 id="内存申请与释放所引起的性能损失问题">内存申请与释放所引起的性能损失问题</h3><p>c的malloc/free，c++的new/delete<br>这类内存申请与释放涉及到以下问题</p>
+        <span itemprop="articleBody"><h1 id="二叉树">二叉树</h1><h2 id="定义">定义</h2><p>在计算机科学中，二叉树是每个节点最多有两个子树的树结构。<br>通常子树被称作“左子树”（left subtree）和“右子树”（right subtree）。<br>二叉树常被用于实现二叉查找树和二叉堆。<br><a id="more"></a></p>
+<h2 id="特点">特点</h2><p>二叉树的每个结点至多只有二棵子树(不存在度大于2的结点)，二叉树的子树有左右之分，次序不能颠倒<br>二叉树的第i层至多有2^（i-1）个结点；深度为k的二叉树至多有2^k-1个结点<br>对任何一棵二叉树T，如果其终端结点数为n_0，度为2的结点数为n_2，则n_0=n_2+1</p>
+<p>一棵深度为k，且有2^k-1个节点称之为满二叉树；</p>
+<p>深度为k，有n个节点的二叉树，当且仅当其每一个节点都与深度为k的满二叉树中，序号为1至n的节点对应时，称之为完全二叉树。</p>
 <ol>
-<li><p>申请时寻找合适的内存块，根据不同的算法有不同的方案</p>
-<ul>
-<li>分配不小于申请时大小</li>
-<li>分配能分配的最大内存块</li>
-<li>分配最接近申请内存大小的内存块</li>
-</ul>
-</li>
-<li><p>进一步分割内存块到合适大小</p>
-</li>
-<li><p>释放时对内存进行整理，例如</p>
-<ul>
-<li>合并连续内存块</li>
-</ul>
-</li>
-<li>多线程问题</li>
+<li>在非空二叉树中，第i层的结点总数不超过2^(i-1)  , i&gt;=1；</li>
+<li>深度为h的二叉树最多有2^h-1个结点(h&gt;=1)，最少有h个结点；</li>
+<li>对于任意一棵二叉树，如果其叶结点数为N0，而度数为2的结点总数为N2，则N0=N2+1；</li>
+<li>具有n个结点的完全二叉树的深度为 </li>
+<li>有N个结点的完全二叉树各结点如果用顺序方式存储，则结点之间有如下关系：<br>若I为结点编号则 如果I&gt;1，则其父结点的编号为I/2；<br>如果2<em>I&lt;=N，则其左儿子（即左子树的根结点）的编号为2</em>I；若2<em>I&gt;N，则无左儿子；<br>如果2</em>I+1&lt;=N，则其右儿子的结点编号为2<em>I+1；若2</em>I+1&gt;N，则无右儿子。</li>
+<li>给定N个节点，能构成h(N)种不同的二叉树。<br>h(N)为卡特兰数的第N项。h(n)=C(2*n，n)/(n+1)。</li>
+<li>设有i个枝点，I为所有枝点的道路长度总和，J为叶的道路长度总和J=I+2i[4] </li>
 </ol>
-<p>综上，调用库中的内存分配函数，本身就相对复杂，<br>可见，如果应用程序频繁地在堆上分配和释放内存，<br>在比较恶劣的情况下会极大的拖慢程序，进而导致性能的损失。</p>
-<h3 id="内存碎片问题">内存碎片问题</h3><p>上面说到的频繁内存申请与释放除了本身运行会很耗时之外<br>还会引起内存碎片问题。<br>即<br><strong>连续的内存空间被分割不同大小的内存分割出去，内存空间不再连续，而是碎片化的</strong><br>假如这时再申请一块内存，尽管剩余内存的总和可能大于所要分配的内存大小，<br>但系统就找不到连续的内存，也就是足够大的内存块，所以导致分配错误。</p>
-<h2 id="原理">原理</h2><p>内存池技术是一种应用程序自己对内存管理的方案,<br>又可叫批发零售模型<del>（不确定）</del>，一般有以下特性</p>
-<h3 id="提前申请">提前申请</h3><p>在程序真正申请必要的内存之前，提前申请一块大的内存，<br>所有的程序需要的内存从这块内存中二次分配。<br>直到该大内存不足时再去再系统申请，<br>减少内存申请的次数</p>
-<h3 id="大小固定">大小固定</h3><p>两部分</p>
-<ul>
-<li>向系统申请的大块内存大小是固定的</li>
-<li>大块内存中二次分配的内存也是按固定大小的小块管理</li>
-</ul>
-<p>在调用内存分配函数的时候，大部分时间所分配的内存大小都是一定的，<br>所以可以采用每次都分配固定大小的内存块，这样就避免了内存碎片产生的可能。</p>
-<h3 id="重复利用">重复利用</h3><p>重复如字面意思，在大块内存二次分配出去的小块内存释放时并不是真的调用free/delete释放<br>而是使用内存池的管理，将其重新标记为可二次分配，等待再次内存池分配出去利用<br>只有当一整块的大块内存都处于空闲时才释放给操作系统<br>减少内存释放的次数</p>
-<h2 id="结尾">结尾</h2><p>通过以上说明，与系统管理内存相比，特别是涉及到频繁内存申请与释放的时候<br>内存池的操作非常迅速，它在性能优化方面的优点主要如下</p>
-<ol>
-<li>针对特殊情况，例如需要频繁分配释放固定大小的内存对象时，不需要复杂的分配算法和多线程保护。也不需要维护内存空闲表的额外开销，从而获得较高的性能。</li>
-<li>由于开辟一定数量的连续内存空间作为内存池块，因而一定程度上提高了程序局部性，提升了程序性能。</li>
-<li>比较容易控制页边界对齐和内存字节对齐，没有内存碎片的问题。</li>
-</ol>
-<p>这里涉及到简单内存的理论说明<br>下面几篇文章有更详实的讨论以及简单c++线程池实现例子</p>
-<ul>
-<li><a href="http://www.cnblogs.com/dylantsou/archive/2012/05/13/2498491.html" target="_blank" rel="external">内存池技术的原理与实现</a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-ppp/index6.html" target="_blank" rel="external"> C++ 应用程序性能优化，第 6 章：内存池</a></li>
-<li><a href="http://www.codeproject.com/Articles/27487/Why-to-use-memory-pool-and-how-to-implement-it" target="_blank" rel="external">Why to use memory pool and how to implement it</a></li>
-</ul>
+<h2 id="遍历">遍历</h2><h3 id="前序遍历">前序遍历</h3><p>先访问根，再先序遍历左（右）子树，最后先序遍历右（左）子树<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">void</span> PreOrderTraverse(BinaryTreeNode * pRoot)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(pRoot == <span class="built_in">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	Visit(pRoot); <span class="comment">// 访问根节点</span></span><br><span class="line">	PreOrderTraverse(pRoot<span class="subst">-&gt;</span>m_pLeft); <span class="comment">// 前序遍历左子树</span></span><br><span class="line">	PreOrderTraverse(pRoot<span class="subst">-&gt;</span>m_pRight); <span class="comment">// 前序遍历右子树</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="中序遍历">中序遍历</h3><p>首先中序遍历左（右）子树，再访问根，最后中序遍历右（左）子树<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">void</span> InOrderTraverse(BinaryTreeNode * pRoot)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(pRoot == <span class="built_in">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	InOrderTraverse(pRoot<span class="subst">-&gt;</span>m_pLeft); <span class="comment">// 中序遍历左子树</span></span><br><span class="line">	Visit(pRoot); <span class="comment">// 访问根节点</span></span><br><span class="line">	InOrderTraverse(pRoot<span class="subst">-&gt;</span>m_pRight); <span class="comment">// 中序遍历右子树</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="后续遍历">后续遍历</h3><p>首先后序遍历左（右）子树，再后序遍历右（左）子树，最后访问根<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">void</span> PostOrderTraverse(BinaryTreeNode * pRoot)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(pRoot == <span class="built_in">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	PostOrderTraverse(pRoot<span class="subst">-&gt;</span>m_pLeft); <span class="comment">// 后序遍历左子树</span></span><br><span class="line">	PostOrderTraverse(pRoot<span class="subst">-&gt;</span>m_pRight); <span class="comment">// 后序遍历右子树</span></span><br><span class="line">	Visit(pRoot); <span class="comment">// 访问根节点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="层次遍历">层次遍历</h3><p>即按照层次访问，通常用队列来做。访问根，访问子女，再访问子女的子女（越往后的层次越低）（两个子女的级别相同）</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">void</span> LevelTraverse(BinaryTreeNode * pRoot)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(pRoot == <span class="built_in">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="built_in">queue</span>&lt;BinaryTreeNode *&gt; q;</span><br><span class="line">	q<span class="built_in">.</span>push(pRoot);</span><br><span class="line">	<span class="keyword">while</span>(<span class="subst">!</span>q<span class="built_in">.</span>empty())</span><br><span class="line">	&#123;</span><br><span class="line">		BinaryTreeNode * pNode = q<span class="built_in">.</span>front();</span><br><span class="line">		q<span class="built_in">.</span>pop();</span><br><span class="line">		Visit(pNode); <span class="comment">// 访问节点</span></span><br><span class="line">		<span class="keyword">if</span>(pNode<span class="subst">-&gt;</span>m_pLeft != <span class="built_in">NULL</span>)</span><br><span class="line">			q<span class="built_in">.</span>push(pNode<span class="subst">-&gt;</span>m_pLeft);</span><br><span class="line">		<span class="keyword">if</span>(pNode<span class="subst">-&gt;</span>m_pRight != <span class="built_in">NULL</span>)</span><br><span class="line">			q<span class="built_in">.</span>push(pNode<span class="subst">-&gt;</span>m_pRight);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相关操作<a href="http://blog.csdn.net/luckyxiaoqiang/article/details/7518888" target="_blank" rel="external">算法实现</a></p>
 </span>
       
     </div>
@@ -242,9 +218,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/内存池/" rel="tag">#内存池</a>
+            <a href="/tags/二叉树/" rel="tag">#二叉树</a>
           
-            <a href="/tags/性能优化/" rel="tag">#性能优化</a>
+            <a href="/tags/数据结构/" rel="tag">#数据结构</a>
           
         </div>
       
@@ -253,13 +229,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/21/jsonp/" rel="prev">jsonp</a>
+              <a href="/2015/09/09/【转】【译】stackoverflow-关于JavsScript的热门问答/" rel="prev">(转载)【译】stackoverflow 关于JavsScript的热门问答</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/19/TCP协议/" rel="next">TCP协议</a>
+              <a href="/2015/08/21/jsonp/" rel="next">jsonp</a>
             
           </div>
         </div>
@@ -363,7 +339,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#内存池原理说明"><span class="nav-number">1.</span> <span class="nav-text">内存池原理说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.1.</span> <span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存申请与释放所引起的性能损失问题"><span class="nav-number">1.1.1.</span> <span class="nav-text">内存申请与释放所引起的性能损失问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存碎片问题"><span class="nav-number">1.1.2.</span> <span class="nav-text">内存碎片问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.2.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#提前申请"><span class="nav-number">1.2.1.</span> <span class="nav-text">提前申请</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大小固定"><span class="nav-number">1.2.2.</span> <span class="nav-text">大小固定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重复利用"><span class="nav-number">1.2.3.</span> <span class="nav-text">重复利用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">1.3.</span> <span class="nav-text">结尾</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉树"><span class="nav-number">1.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">1.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历"><span class="nav-number">1.3.</span> <span class="nav-text">遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前序遍历"><span class="nav-number">1.3.1.</span> <span class="nav-text">前序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中序遍历"><span class="nav-number">1.3.2.</span> <span class="nav-text">中序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后续遍历"><span class="nav-number">1.3.3.</span> <span class="nav-text">后续遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层次遍历"><span class="nav-number">1.3.4.</span> <span class="nav-text">层次遍历</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
