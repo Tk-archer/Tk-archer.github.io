@@ -164,6 +164,271 @@
           
           
             
+              <a class="post-title-link" href="/2015/10/29/Material-Design-Lite学习其一/" itemprop="url">
+                Material Design Lite学习其一
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-29T23:27:51+08:00" content="2015-10-29">
+            2015-10-29
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>Material Design Lite组件的用法</p>
+<h1 id="BADGES">BADGES</h1><table>
+<thead>
+<tr>
+<th>类名</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mdl-badge</td>
+<td>定义一个 MDL badge 组件</td>
+<td>必须是span 或者link元素</td>
+</tr>
+<tr>
+<td>mdl-badge–no-background</td>
+<td>取消badge的背景颜色</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>mdl-badge–overlap</td>
+<td>Make the badge overlap with its container</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>data-badge=”value”</td>
+<td>badge 的值</td>
+<td>不是一个类，而是一个属性值</td>
+</tr>
+</tbody>
+</table>
+<h1 id="button">button</h1><table>
+<thead>
+<tr>
+<th>类名</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mdl-button</td>
+<td>定义一个 mdl 按钮</td>
+<td>必须的</td>
+</tr>
+<tr>
+<td>mdl-js-button</td>
+<td>指定基础的mdl按钮行为</td>
+<td>必须的</td>
+</tr>
+<tr>
+<td>mdl-button–raised</td>
+<td>指定为矩形样式</td>
+<td>与fab min-fab 和icon互斥</td>
+</tr>
+<tr>
+<td>mdl-button–fab</td>
+<td>指定为fab（圆形）样式</td>
+<td>与raised, mini-fab和icon互斥</td>
+</tr>
+<tr>
+<td>mdl-button–mini-fab</td>
+<td>指定为min-fab（比上面小的圆形）样式</td>
+<td>与 raised, fab和icon互斥</td>
+</tr>
+<tr>
+<td>mdl-button–icon</td>
+<td>指定为图标（小而平扁的）样式</td>
+<td>与raised, mini-fab和fab互斥</td>
+</tr>
+<tr>
+<td>mdl-button–colored</td>
+<td>指定按钮的颜色</td>
+<td>颜色定义在material.min.css</td>
+</tr>
+<tr>
+<td>mdl-button–primary</td>
+<td>指定按钮的基本色</td>
+<td>颜色定义在material.min.css</td>
+</tr>
+<tr>
+<td>mdl-button–accent</td>
+<td>指定按钮的强调色</td>
+<td>颜色定义在material.min.css</td>
+</tr>
+<tr>
+<td>mdl-js-ripple-effect</td>
+<td>显示波纹点击效果</td>
+<td>可以结合其他任何类使用的</td>
+</tr>
+</tbody>
+</table>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/09/29/Promise/" itemprop="url">
+                Promise
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-09-29T22:40:49+08:00" content="2015-09-29">
+            2015-09-29
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h1 id="Promise学习笔记">Promise学习笔记</h1><p>Promise的学习记录，按惯例，会在最后附上参考资料的链接=。=</p>
+<h2 id="什么是Promise">什么是Promise</h2><p>如果你已经有一定的了解，或是Promise的使用经历<br>我建议你去读读Promise/A+规范的<a href="https://promisesaplus.com/" target="_blank" rel="external">原文</a>或者<a href="http://www.ituring.com.cn/article/66566" target="_blank" rel="external">译文</a>。规范本身并不多，也比较详实。</p>
+<p>回到主题，Promise对象是一个抽象化的异步处理对象，按照Promise规范进行统一。在一个promise对象执行成功时和失败时相应的回调函数。</p>
+<h3 id="传统回调函数">传统回调函数</h3><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getAsync(<span class="string">"fileA.txt"</span>, function(error, <span class="literal">result</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(error)&#123;// 取得失败时的处理</span><br><span class="line">        throw error;</span><br><span class="line">    &#125;</span><br><span class="line">    // 取得成功时的处理</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Promise对象">Promise对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;<span class="comment">//使用构造器构造Promise对象</span></span><br><span class="line">                 一些异步处理...                       <span class="comment">//传入构造器的必须是函数</span></span><br><span class="line">                 成功则resolve(value)                 <span class="comment">// 且该函数接收resolve和reject两个参数</span></span><br><span class="line">                 失败则reject(error)</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>promise对象本质上是代替了实际值的返回<br>（一般的异步过程，过程执行后没有结果，立刻返回。结果出来后环境会调用回调函数进行处理），是对未来的值或异常的占位。</p>
+<h2 id="then">then</h2><p>每个promise对象都有then()方法。用于指定promise对象在 resolve(成功) / reject(失败)时调用的实例方法</p>
+<figure class="highlight mercury"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">promise</span>.<span class="built_in">then</span>(onFulfilled, onRejected);</span><br></pre></td></tr></table></figure>
+<p><strong>resolve(成功)时</strong><br>onFulfilled 会被调用</p>
+<p><strong>reject(失败)时</strong><br>onRejected 会被调用<br>onFulfilled、onRejected 两个都为可选参数。<br>当只指定其中一个参数时形如<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">promise.then<span class="params">(onFulfilled, <span class="literal">undef</span>ined)</span>;</span><br><span class="line"><span class="comment">//与</span></span><br><span class="line">promise.then<span class="params">(<span class="literal">undef</span>ined, onRejected)</span>;</span><br></pre></td></tr></table></figure></p>
+<p>以上后一种写法等价于以下语法糖</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">promise.<span class="keyword">catch</span>(<span class="function"><span class="keyword">function</span><span class="params">(error)</span> </span>&#123;</span><br><span class="line">       失败时dosomething...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="Promise的状态">Promise的状态</h2><p>每个Promise有且仅有以下三种状态</p>
+<p><strong>“has-resolution” - Fulfilled</strong><br>resolve(成功)时。此时会调用 onFulfilled</p>
+<p><strong>“has-rejection” - Rejected</strong><br>reject(失败)时。此时会调用 onRejected</p>
+<p><strong>“unresolved” - Pending</strong><br>既不是resolve也不是reject的状态.<br>也就是promise对象刚被创建后的初始化状态等</p>
+<p>promise对象的状态，从Pending转换为Fulfilled或Rejected之后，<br>这个promise对象的状态就不会再发生任何变化。<br><img src="http://liubin.github.io/promises-book/Ch1_WhatsPromises/img/promise-states.png" alt="http://liubin.github.io/promises-book/Ch1_WhatsPromises/img/promise-states.png"><br>也就是说，Promise与Event等不同，在.then 后执行的函数可以肯定地说只会被调用一次。<br>另外，Fulfilled和Rejected这两个中的任一状态都可以表示为Settled(不变的)。</p>
+<h2 id="Promise的链式调用">Promise的链式调用</h2><p>对于promise可以进行以下链式调用<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">taskA</span><span class="params">()</span> &#123;</span></span><br><span class="line">    console.<span class="built_in">log</span><span class="params">(<span class="string">"Task A"</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">taskB</span><span class="params">()</span> &#123;</span></span><br><span class="line">    console.<span class="built_in">log</span><span class="params">(<span class="string">"Task B"</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onRejected</span><span class="params">(error)</span> &#123;</span></span><br><span class="line">    console.<span class="built_in">log</span><span class="params">(<span class="string">"Catch Error: A or B"</span>, error)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">finalTask</span><span class="params">()</span> &#123;</span></span><br><span class="line">    console.<span class="built_in">log</span><span class="params">(<span class="string">"Final Task"</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var promise = Promise.resolve<span class="params">()</span>;</span><br><span class="line">promise</span><br><span class="line">    .then<span class="params">(taskA)</span></span><br><span class="line">    .then<span class="params">(taskB)</span></span><br><span class="line">    .catch<span class="params">(onRejected)</span></span><br><span class="line">    .then<span class="params">(finalTask)</span>;</span><br></pre></td></tr></table></figure></p>
+<p>每个then都异步执行一项任务,假如有错则被catch捕获,否则将按<br>taskA-taskB-finalTask执行<br>如图所示<br><img src="http://liubin.github.io/promises-book/Ch2_HowToWrite/img/promise-then-catch-flow.png" alt="promise执行顺序"></p>
+<ol>
+<li>用then注册的函数会被依次调用</li>
+<li>promise代表的异步流程、taskA以及taskB出错或reject，都会调用出错处理</li>
+<li>出错处理以及最终任务出错，不会有出错处理</li>
+</ol>
+<h2 id="传递参数">传递参数</h2><p>要在两个then里传递参数,前一个的return 的值会成为后一个传入值<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">promise</span><br><span class="line">    .<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	dosomething....</span><br><span class="line">    	<span class="keyword">return</span> res</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(value)</span></span>&#123;</span><br><span class="line">    	dosomething....</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    res===<span class="keyword">value</span> //true</span><br></pre></td></tr></table></figure></p>
+<p>return 的值不仅只局限于字符串或者数值类型，也可以是对象、undefined（即当你不显式return时）或者promise对象等复杂类型。</p>
+<p>return的值会被进行相应的包装处理，因此不管回调函数中会返回一个什么样的值，最终 then 的结果都是返回一个新创建的promise对象。这就是为何可以链式调用。</p>
+<p>总而言之，如果你返回一个值，它就会被传给下一个 then 的回调；而如果你返回一个“类 Promise”的对象，则下一个 then 就会等待这个 Promise 明确结束（成功/失败）才会执行</p>
+<h2 id="reject还是throw">reject还是throw</h2><p>从上文的内容，我们可以总结出：</p>
+<ol>
+<li>Promise的构造函数，以及被 then 调用执行的函数基本上都可以认为是在 try…catch 代码块中执行的</li>
+<li>throw不会让程序因为异常而终止，而是把该Promise转为rejected状态，并转交给注册好的错误处理函数处理。</li>
+<li>不要使用throw而使用reject,因为使用throw会让异常的原因难以区分</li>
+</ol>
+<p>最佳实践,在Promise内就正常调用reject()即可<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">promise.then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> retPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">       reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"this promise is rejected"</span>));</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> retPromise;</span><br><span class="line">&#125;).catch(onRejected);</span><br></pre></td></tr></table></figure></p>
+<h2 id="静态方法">静态方法</h2><p>Promise还有许多静态方法,便于我们处理异步流程</p>
+<h3 id="Promise-resolve">Promise.resolve</h3><p><strong>作为语法糖</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Promise.resolve(<span class="number">42</span>);</span><br></pre></td></tr></table></figure></p>
+<p>等价于<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">          resolve(<span class="number">42</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>快速创建一个进入resolved状态的Promise对象</p>
+<h3 id="Promise-reject">Promise.reject</h3><p><strong>作为语法糖</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Promise.reject(<span class="number">42</span>);</span><br></pre></td></tr></table></figure></p>
+<p>等价于<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">          reject(<span class="number">42</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>快速创建一个进入rejected状态的Promise对象</p>
+<h3 id="Promise-all">Promise.all</h3><p>Promise.all 接收一个 promise对象的数组作为参数，当这个数组里的所有promise对象全部变为resolve或reject状态的时候，它才会去调用 .then 方法。<br>用于处理批量事件</p>
+<blockquote>
+<h4 id="注意">注意</h4><p>：传递给 Promise.all 的Promise们并不是一个个顺序执行的，而是同时开始、并行执行的。</p>
+</blockquote>
+<h3 id="Promise-race">Promise.race</h3><p>Promise.race 接收一个 Promise对象的数组作为参数，并返回一个Promise对象。可以在这个对象上用then方法注册函数，该函数接收一个保存着一个Promise结果。当数组里的有一个promise对象变为resolved或rejected状态的时候，注册的函数才会被调用。</p>
+<blockquote>
+<h4 id="注意：">注意：</h4><p>传递给 Promise.race 的Promise们并不是一个个顺序执行的，而是同时开始、并行执行的。<br>在第一个promise对象变为Fulfilled之后，并不会取消其他promise对象的执行</p>
+</blockquote>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/09/09/【转】【译】stackoverflow-关于JavsScript的热门问答/" itemprop="url">
                 (转载)【译】stackoverflow 关于JavsScript的热门问答
               </a>
@@ -720,7 +985,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -734,7 +999,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

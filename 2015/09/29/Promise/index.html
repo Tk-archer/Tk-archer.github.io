@@ -1,0 +1,647 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="聆听群山的呼喊" />
+
+
+
+  <meta name="keywords" content="Promise,es6规范,回调地狱," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="Promise学习笔记Promise的学习记录，按惯例，会在最后附上参考资料的链接=。=
+什么是Promise如果你已经有一定的了解，或是Promise的使用经历我建议你去读读Promise/A+规范的原文或者译文。规范本身并不多，也比较详实。
+回到主题，Promise对象是一个抽象化的异步处理对象，按照Promise规范进行统一。在一个promise对象执行成功时和失败时相应的回调函数。
+传统回">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Promise">
+<meta property="og:url" content="http://yoursite.com/2015/09/29/Promise/index.html">
+<meta property="og:site_name" content="Fsz车站">
+<meta property="og:description" content="Promise学习笔记Promise的学习记录，按惯例，会在最后附上参考资料的链接=。=
+什么是Promise如果你已经有一定的了解，或是Promise的使用经历我建议你去读读Promise/A+规范的原文或者译文。规范本身并不多，也比较详实。
+回到主题，Promise对象是一个抽象化的异步处理对象，按照Promise规范进行统一。在一个promise对象执行成功时和失败时相应的回调函数。
+传统回">
+<meta property="og:image" content="http://liubin.github.io/promises-book/Ch1_WhatsPromises/img/promise-states.png">
+<meta property="og:image" content="http://liubin.github.io/promises-book/Ch2_HowToWrite/img/promise-then-catch-flow.png">
+<meta property="og:updated_time" content="2015-09-30T03:42:57.663Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Promise">
+<meta name="twitter:description" content="Promise学习笔记Promise的学习记录，按惯例，会在最后附上参考资料的链接=。=
+什么是Promise如果你已经有一定的了解，或是Promise的使用经历我建议你去读读Promise/A+规范的原文或者译文。规范本身并不多，也比较详实。
+回到主题，Promise对象是一个抽象化的异步处理对象，按照Promise规范进行统一。在一个promise对象执行成功时和失败时相应的回调函数。
+传统回">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Promise | Fsz车站 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">Fsz车站</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Promise
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-09-29T22:40:49+08:00" content="2015-09-29">
+            2015-09-29
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="Promise学习笔记">Promise学习笔记</h1><p>Promise的学习记录，按惯例，会在最后附上参考资料的链接=。=</p>
+<h2 id="什么是Promise">什么是Promise</h2><p>如果你已经有一定的了解，或是Promise的使用经历<br>我建议你去读读Promise/A+规范的<a href="https://promisesaplus.com/" target="_blank" rel="external">原文</a>或者<a href="http://www.ituring.com.cn/article/66566" target="_blank" rel="external">译文</a>。规范本身并不多，也比较详实。</p>
+<p>回到主题，Promise对象是一个抽象化的异步处理对象，按照Promise规范进行统一。在一个promise对象执行成功时和失败时相应的回调函数。</p>
+<h3 id="传统回调函数">传统回调函数</h3><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">getAsync(<span class="string">"fileA.txt"</span>, function(error, <span class="literal">result</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(error)&#123;// 取得失败时的处理</span><br><span class="line">        throw error;</span><br><span class="line">    &#125;</span><br><span class="line">    // 取得成功时的处理</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Promise对象">Promise对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;<span class="comment">//使用构造器构造Promise对象</span></span><br><span class="line">                 一些异步处理...                       <span class="comment">//传入构造器的必须是函数</span></span><br><span class="line">                 成功则resolve(value)                 <span class="comment">// 且该函数接收resolve和reject两个参数</span></span><br><span class="line">                 失败则reject(error)</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>promise对象本质上是代替了实际值的返回<br>（一般的异步过程，过程执行后没有结果，立刻返回。结果出来后环境会调用回调函数进行处理），是对未来的值或异常的占位。</p>
+<h2 id="then">then</h2><p>每个promise对象都有then()方法。用于指定promise对象在 resolve(成功) / reject(失败)时调用的实例方法</p>
+<figure class="highlight mercury"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">promise</span>.<span class="built_in">then</span>(onFulfilled, onRejected);</span><br></pre></td></tr></table></figure>
+<p><strong>resolve(成功)时</strong><br>onFulfilled 会被调用</p>
+<p><strong>reject(失败)时</strong><br>onRejected 会被调用<br>onFulfilled、onRejected 两个都为可选参数。<br>当只指定其中一个参数时形如<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">promise.then<span class="params">(onFulfilled, <span class="literal">undef</span>ined)</span>;</span><br><span class="line"><span class="comment">//与</span></span><br><span class="line">promise.then<span class="params">(<span class="literal">undef</span>ined, onRejected)</span>;</span><br></pre></td></tr></table></figure></p>
+<p>以上后一种写法等价于以下语法糖</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">promise.<span class="keyword">catch</span>(<span class="function"><span class="keyword">function</span><span class="params">(error)</span> </span>&#123;</span><br><span class="line">       失败时dosomething...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="Promise的状态">Promise的状态</h2><p>每个Promise有且仅有以下三种状态</p>
+<p><strong>“has-resolution” - Fulfilled</strong><br>resolve(成功)时。此时会调用 onFulfilled</p>
+<p><strong>“has-rejection” - Rejected</strong><br>reject(失败)时。此时会调用 onRejected</p>
+<p><strong>“unresolved” - Pending</strong><br>既不是resolve也不是reject的状态.<br>也就是promise对象刚被创建后的初始化状态等</p>
+<p>promise对象的状态，从Pending转换为Fulfilled或Rejected之后，<br>这个promise对象的状态就不会再发生任何变化。<br><img src="http://liubin.github.io/promises-book/Ch1_WhatsPromises/img/promise-states.png" alt="http://liubin.github.io/promises-book/Ch1_WhatsPromises/img/promise-states.png"><br>也就是说，Promise与Event等不同，在.then 后执行的函数可以肯定地说只会被调用一次。<br>另外，Fulfilled和Rejected这两个中的任一状态都可以表示为Settled(不变的)。</p>
+<h2 id="Promise的链式调用">Promise的链式调用</h2><p>对于promise可以进行以下链式调用<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">taskA</span><span class="params">()</span> &#123;</span></span><br><span class="line">    console.<span class="built_in">log</span><span class="params">(<span class="string">"Task A"</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">taskB</span><span class="params">()</span> &#123;</span></span><br><span class="line">    console.<span class="built_in">log</span><span class="params">(<span class="string">"Task B"</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onRejected</span><span class="params">(error)</span> &#123;</span></span><br><span class="line">    console.<span class="built_in">log</span><span class="params">(<span class="string">"Catch Error: A or B"</span>, error)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">finalTask</span><span class="params">()</span> &#123;</span></span><br><span class="line">    console.<span class="built_in">log</span><span class="params">(<span class="string">"Final Task"</span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var promise = Promise.resolve<span class="params">()</span>;</span><br><span class="line">promise</span><br><span class="line">    .then<span class="params">(taskA)</span></span><br><span class="line">    .then<span class="params">(taskB)</span></span><br><span class="line">    .catch<span class="params">(onRejected)</span></span><br><span class="line">    .then<span class="params">(finalTask)</span>;</span><br></pre></td></tr></table></figure></p>
+<p>每个then都异步执行一项任务,假如有错则被catch捕获,否则将按<br>taskA-taskB-finalTask执行<br>如图所示<br><img src="http://liubin.github.io/promises-book/Ch2_HowToWrite/img/promise-then-catch-flow.png" alt="promise执行顺序"></p>
+<ol>
+<li>用then注册的函数会被依次调用</li>
+<li>promise代表的异步流程、taskA以及taskB出错或reject，都会调用出错处理</li>
+<li>出错处理以及最终任务出错，不会有出错处理</li>
+</ol>
+<h2 id="传递参数">传递参数</h2><p>要在两个then里传递参数,前一个的return 的值会成为后一个传入值<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">promise</span><br><span class="line">    .<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	dosomething....</span><br><span class="line">    	<span class="keyword">return</span> res</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(value)</span></span>&#123;</span><br><span class="line">    	dosomething....</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    res===<span class="keyword">value</span> //true</span><br></pre></td></tr></table></figure></p>
+<p>return 的值不仅只局限于字符串或者数值类型，也可以是对象、undefined（即当你不显式return时）或者promise对象等复杂类型。</p>
+<p>return的值会被进行相应的包装处理，因此不管回调函数中会返回一个什么样的值，最终 then 的结果都是返回一个新创建的promise对象。这就是为何可以链式调用。</p>
+<p>总而言之，如果你返回一个值，它就会被传给下一个 then 的回调；而如果你返回一个“类 Promise”的对象，则下一个 then 就会等待这个 Promise 明确结束（成功/失败）才会执行</p>
+<h2 id="reject还是throw">reject还是throw</h2><p>从上文的内容，我们可以总结出：</p>
+<ol>
+<li>Promise的构造函数，以及被 then 调用执行的函数基本上都可以认为是在 try…catch 代码块中执行的</li>
+<li>throw不会让程序因为异常而终止，而是把该Promise转为rejected状态，并转交给注册好的错误处理函数处理。</li>
+<li>不要使用throw而使用reject,因为使用throw会让异常的原因难以区分</li>
+</ol>
+<p>最佳实践,在Promise内就正常调用reject()即可<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">promise.then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> retPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">       reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"this promise is rejected"</span>));</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> retPromise;</span><br><span class="line">&#125;).catch(onRejected);</span><br></pre></td></tr></table></figure></p>
+<h2 id="静态方法">静态方法</h2><p>Promise还有许多静态方法,便于我们处理异步流程</p>
+<h3 id="Promise-resolve">Promise.resolve</h3><p><strong>作为语法糖</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Promise.resolve(<span class="number">42</span>);</span><br></pre></td></tr></table></figure></p>
+<p>等价于<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">          resolve(<span class="number">42</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>快速创建一个进入resolved状态的Promise对象</p>
+<h3 id="Promise-reject">Promise.reject</h3><p><strong>作为语法糖</strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Promise.reject(<span class="number">42</span>);</span><br></pre></td></tr></table></figure></p>
+<p>等价于<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">          reject(<span class="number">42</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>快速创建一个进入rejected状态的Promise对象</p>
+<h3 id="Promise-all">Promise.all</h3><p>Promise.all 接收一个 promise对象的数组作为参数，当这个数组里的所有promise对象全部变为resolve或reject状态的时候，它才会去调用 .then 方法。<br>用于处理批量事件</p>
+<blockquote>
+<h4 id="注意">注意</h4><p>：传递给 Promise.all 的Promise们并不是一个个顺序执行的，而是同时开始、并行执行的。</p>
+</blockquote>
+<h3 id="Promise-race">Promise.race</h3><p>Promise.race 接收一个 Promise对象的数组作为参数，并返回一个Promise对象。可以在这个对象上用then方法注册函数，该函数接收一个保存着一个Promise结果。当数组里的有一个promise对象变为resolved或rejected状态的时候，注册的函数才会被调用。</p>
+<blockquote>
+<h4 id="注意：">注意：</h4><p>传递给 Promise.race 的Promise们并不是一个个顺序执行的，而是同时开始、并行执行的。<br>在第一个promise对象变为Fulfilled之后，并不会取消其他promise对象的执行</p>
+</blockquote>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Promise/" rel="tag">#Promise</a>
+          
+            <a href="/tags/es6规范/" rel="tag">#es6规范</a>
+          
+            <a href="/tags/回调地狱/" rel="tag">#回调地狱</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/29/Material-Design-Lite学习其一/" rel="prev">Material Design Lite学习其一</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/09/【转】【译】stackoverflow-关于JavsScript的热门问答/" rel="next">(转载)【译】stackoverflow 关于JavsScript的热门问答</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/uploads/avatar.jpg" alt="Fsz" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Fsz</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">聆听群山的呼喊</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Promise学习笔记"><span class="nav-number">1.</span> <span class="nav-text">Promise学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Promise"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统回调函数"><span class="nav-number">1.1.1.</span> <span class="nav-text">传统回调函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise对象"><span class="nav-number">1.1.2.</span> <span class="nav-text">Promise对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#then"><span class="nav-number">1.2.</span> <span class="nav-text">then</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise的状态"><span class="nav-number">1.3.</span> <span class="nav-text">Promise的状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise的链式调用"><span class="nav-number">1.4.</span> <span class="nav-text">Promise的链式调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传递参数"><span class="nav-number">1.5.</span> <span class="nav-text">传递参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reject还是throw"><span class="nav-number">1.6.</span> <span class="nav-text">reject还是throw</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态方法"><span class="nav-number">1.7.</span> <span class="nav-text">静态方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-resolve"><span class="nav-number">1.7.1.</span> <span class="nav-text">Promise.resolve</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-reject"><span class="nav-number">1.7.2.</span> <span class="nav-text">Promise.reject</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-all"><span class="nav-number">1.7.3.</span> <span class="nav-text">Promise.all</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">1.7.3.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-race"><span class="nav-number">1.7.4.</span> <span class="nav-text">Promise.race</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意："><span class="nav-number">1.7.4.1.</span> <span class="nav-text">注意：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fsz</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
