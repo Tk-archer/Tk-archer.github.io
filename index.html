@@ -195,7 +195,7 @@
 
       
         
-          <span itemprop="articleBody"><p>Material Design Lite组件的用法</p>
+          <span itemprop="articleBody"><p>Material Design Lite组件的用法<br>官网连接在<a href="http://www.getmdl.io/components/index.html" target="_blank" rel="external">这里</a></p>
 <h1 id="BADGES">BADGES</h1><table>
 <thead>
 <tr>
@@ -207,7 +207,7 @@
 <tbody>
 <tr>
 <td>mdl-badge</td>
-<td>定义一个 MDL badge 组件</td>
+<td>定义一个 MDL badge 容器</td>
 <td>必须是span 或者link元素</td>
 </tr>
 <tr>
@@ -268,23 +268,257 @@
 </tr>
 <tr>
 <td>mdl-button–colored</td>
-<td>指定按钮的颜色</td>
+<td>指定按钮是彩色</td>
 <td>颜色定义在material.min.css</td>
 </tr>
 <tr>
 <td>mdl-button–primary</td>
-<td>指定按钮的基本色</td>
+<td>指定按钮为基本色</td>
 <td>颜色定义在material.min.css</td>
 </tr>
 <tr>
 <td>mdl-button–accent</td>
-<td>指定按钮的强调色</td>
+<td>指定按钮为强调色</td>
 <td>颜色定义在material.min.css</td>
 </tr>
 <tr>
 <td>mdl-js-ripple-effect</td>
 <td>显示波纹点击效果</td>
 <td>可以结合其他任何类使用的</td>
+</tr>
+</tbody>
+</table>
+<h1 id="CARDS">CARDS</h1><table>
+<thead>
+<tr>
+<th>类名</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mdl-card</td>
+<td>定义一个MDL card容器</td>
+<td>必须是最外层的div</td>
+</tr>
+<tr>
+<td>mdl-card–border</td>
+<td>用于添加card容器的边框</td>
+<td>用在内部的div中</td>
+</tr>
+<tr>
+<td>mdl-shadow–2dp through mdl-shadow–16dp</td>
+<td>指定card容器的阴影深度（2,3,4,6,8,16）</td>
+<td>可选的，用于外层div 如果省略，则没有阴影</td>
+</tr>
+<tr>
+<td>mdl-card__title</td>
+<td>定义div为card的标题容器</td>
+<td>必须是内部的标题div    </td>
+</tr>
+<tr>
+<td>mdl-card__title-text</td>
+<td>指定对应的card标题文字</td>
+<td>必须是用于 标题div内部head标签（h1~h6）    </td>
+</tr>
+<tr>
+<td>mdl-card__subtitle-text</td>
+<td>指定对应的card副标题文字</td>
+<td>可选的，应该是是标题元素的子元素    </td>
+</tr>
+<tr>
+<td>mdl-card__media</td>
+<td>定义一个card的媒体容器</td>
+<td>必须用于内部的媒体div</td>
+</tr>
+<tr>
+<td>mdl-card__supporting-text</td>
+<td>定义一个card文本容器，并分配相应的文本特性与正文</td>
+<td>必须是用于内部的正文div，正文直接插入这个元素中，不需要其他内部容器</td>
+</tr>
+<tr>
+<td>mdl-card__actions</td>
+<td>定义一个card的交互容器并分配相应的文本特征给动作的文本</td>
+<td>必须是用于内部的交互div，交互内容直接插入这个元素中，不需要其他内部容器</td>
+</tr>
+</tbody>
+</table>
+<h1 id="LOADING">LOADING</h1><h2 id="Progress_bar">Progress bar</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- MDL Progress Bar with Buffering --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"p3"</span> <span class="attribute">class</span>=<span class="value">"mdl-progress mdl-js-progress"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">'#p3'</span>).addEventListener(<span class="string">'mdl-componentupgraded'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.MaterialProgress.setProgress(<span class="number">33</span>);</span><br><span class="line">    <span class="keyword">this</span>.MaterialProgress.setBuffer(<span class="number">87</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>类名</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mdl-progress</td>
+<td>定义一个MDL 进度条组件容器</td>
+<td>必须的</td>
+</tr>
+<tr>
+<td>mdl-js-progress</td>
+<td>指定一个基础的MDL 进度指示器交互行为</td>
+<td>必须的</td>
+</tr>
+<tr>
+<td>mdl-progress__indeterminate</td>
+<td>增加动态效果</td>
+<td>可选的</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SPINNER">SPINNER</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- MDL Spinner Component --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"mdl-spinner mdl-js-spinner is-active"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- MDL Spinner Component with Single Color --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>类名</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mdl-spinner</td>
+<td>定义一个MDL spinner组件容器</td>
+<td>必须的</td>
+</tr>
+<tr>
+<td>mdl-js-spinner</td>
+<td>指定一个基础的MDL spinner交互行为</td>
+<td>必须的 </td>
+</tr>
+<tr>
+<td>is-active</td>
+<td>令spinner可见并执行动画效果</td>
+<td>可选的</td>
+</tr>
+<tr>
+<td>mdl-spinner–single-color</td>
+<td>使用单一颜色而不改变颜色</td>
+<td>可选的</td>
+</tr>
+</tbody>
+</table>
+<h1 id="table">table</h1><table>
+<thead>
+<tr>
+<th>类名</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mdl-data-table</td>
+<td>定义一个MDL table组件</td>
+<td>需要用于table元素</td>
+</tr>
+<tr>
+<td>mdl-js-data-table</td>
+<td>指定基础MDL table 交互行为</td>
+<td>需要用于table元素</td>
+</tr>
+<tr>
+<td>mdl-data-table–selectable</td>
+<td>使表格元素可选</td>
+<td>可选 用于table元素</td>
+</tr>
+<tr>
+<td>mdl-data-table__cell–non-numeric</td>
+<td>格式化数据单元格</td>
+<td>可选 用于表头和表单数据单元格</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TEXT_FIELDS">TEXT FIELDS</h1><table>
+<thead>
+<tr>
+<th>类名</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mdl-textfield</td>
+<td>定义一个MDL组件容器</td>
+<td>必须是用于外层div元素</td>
+</tr>
+<tr>
+<td>mdl-js-textfield</td>
+<td>指定基础的MDL input元素行为</td>
+<td>必须是用于外层div元素</td>
+</tr>
+<tr>
+<td>mdl-textfield__input</td>
+<td>定义一个文本域输入元素</td>
+<td>必须是用于input 或者textarea元素</td>
+</tr>
+<tr>
+<td>mdl-textfield__label</td>
+<td>定义一个文本域标签元素</td>
+<td>必须是用于绑定了input 或者textarea的label元素</td>
+</tr>
+<tr>
+<td>mdl-textfield–floating-label</td>
+<td>添加label浮动效果</td>
+<td>可选，在外层的div元素</td>
+</tr>
+<tr>
+<td>mdl-textfield__error</td>
+<td>定义一个MDL错误信息的span</td>
+<td>用在有pattern属性的MDL input元素之后的span元素</td>
+</tr>
+<tr>
+<td>mdl-textfield–expandable</td>
+<td>定义一个MDL可扩展的文本域容器</td>
+<td>为了可扩展输入域，用于外层容器</td>
+</tr>
+<tr>
+<td>mdl-button</td>
+<td>按钮</td>
+<td>为了可扩展输入域，用于外层容器下的label元素</td>
+</tr>
+<tr>
+<td>mdl-js-button</td>
+<td>按钮交互</td>
+<td>为了可扩展输入域，用于外层容器下的label元素</td>
+</tr>
+<tr>
+<td>mdl-button–icon</td>
+<td>图标按钮</td>
+<td>为了可扩展输入域，用于外层容器下的label元素</td>
+</tr>
+<tr>
+<td>mdl-input__expandable-holder</td>
+<td>定义一个MDL组件容器</td>
+<td>为了可扩展输入域，用于内部的div元素</td>
+</tr>
+</tbody>
+</table>
+<h1 id="TOOLTIPS">TOOLTIPS</h1><p>用例<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Simple Tooltip --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"tt1"</span> <span class="attribute">class</span>=<span class="value">"icon material-icons"</span>&gt;</span>add<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"mdl-tooltip"</span> <span class="attribute">for</span>=<span class="value">"tt1"</span>&gt;</span></span><br><span class="line">	Follow</span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>类名</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mdl-tooltip</td>
+<td>定义一个 MDL tooltip容器</td>
+<td>用于  tooltip容器元素 </td>
+</tr>
+<tr>
+<td>mdl-tooltip–large</td>
+<td>更大的文字效果</td>
+<td>可选 用于  tooltip容器元素 </td>
 </tr>
 </tbody>
 </table>
@@ -999,7 +1233,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
